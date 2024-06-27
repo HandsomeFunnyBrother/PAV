@@ -3,11 +3,9 @@ package com.tedu.shoot;
 import java.util.Random;
 
 public class Bee extends FlyingObject implements Award {
-
 	public int deepy;
 	public int deepx;
 	public int awardType;
-	
 	public Bee(){
 		life = 6 + lifeadd;
 		//将蜜蜂图片传入过来
@@ -35,15 +33,11 @@ public class Bee extends FlyingObject implements Award {
 		awardType = ra.nextInt(2);   //0 加命，1加火力
 	}
 	public int getScore() {
-		// TODO Auto-generated method stub
 		return 5;
 	}
-	
-	
 	@Override
 	// 蜜蜂类的step方法，用于更新蜜蜂的位置
 	public void step() {
-		// TODO Auto-generated method stub
 		// 如果蜜蜂的x坐标加上图片宽度大于等于游戏面板的宽度，说明碰到了右边界
 		if(x + img.getWidth() >= GamePane.WIDTH){
 			// 反转水平方向的移动方向
@@ -57,15 +51,12 @@ public class Bee extends FlyingObject implements Award {
 		x = x + deepx;
 		y = y + deepy;
 	}
-
 	@Override
 	// 检查蜜蜂是否超出边界的方法
 	public boolean outofBounds() {
-		// TODO Auto-generated method stub
 		// 如果蜜蜂的y坐标大于等于游戏面板的高度，返回true，表示超出边界
 		return y >= GamePane.HEIGHT;
 	}
-
 	// 获取奖励类型的方法
 	public int getAward(){
 		// 返回奖励类型（0为加命，1为加火力）
